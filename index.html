@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Calculator</title>
+    <link rel="shortcut icon" href="lovfav.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-family: "Ysabeau Infant", sans-serif;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: linear-gradient(to right, #ff9ca5, #e29587);
+        text-align: center;
+      }
+      i,
+      #result,
+      h1 {
+        color: rgb(248, 5, 90);
+      }
+      h1 {
+        margin-top: 40px;
+        word-spacing: 4px;
+        font-size: 40px;
+      }
+
+      p {
+        margin-top: 20px;
+        word-spacing: 2px;
+        font-size: 20px;
+      }
+
+      .name-container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 25px;
+        word-spacing: 6px;
+      }
+
+      #result {
+        font-size: 36px;
+        letter-spacing: 2px;
+        font-weight: bold;
+      }
+      .input-container {
+        margin-top: 70px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .input-container input {
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        color: rgb(248, 5, 90);
+        font-weight: bold;
+        font-size: large;
+        padding: 8px;
+        width: 40%;
+        outline: none;
+      }
+
+      button {
+        margin-top: 40px;
+        padding: 15px;
+        width: 85%;
+        margin-left: 110px;
+        font-size: 20px;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        background-color: rgb(248, 5, 90);
+        outline: none;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: rgba(248, 5, 90, 0.852);
+      }
+
+      marquee {
+        margin-top: 60px;
+        font-size: x-large;
+        color: rgb(248, 5, 90);
+      }
+      @media all and (max-width: 776px) {
+        button {
+          width: 50%;
+          margin-left: 170px;
+        }
+
+        @media all and (max-width: 450px) {
+          .input-container {
+            flex-direction: column;
+          }
+          .input-container input {
+            margin: 0 auto;
+            margin-bottom: 20px;
+            font-size: small;
+          }
+          button {
+            margin: auto;
+          }
+        }
+
+        @media all and (max-width: 270px) {
+          h1,p,marquee{
+            font-size: medium;
+          }
+          
+          .input-container input,button{
+            font-size: x-small;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Love Calculator</h1>
+    <p>These are the results by Dr. Love:</p>
+    <div class="name-container">
+      <span id="name-1"></span> <i class="fa-sharp fa-solid fa-heart"></i>
+      <span id="name-2"></span>
+    </div>
+    <div id="result"></div>
+    <div class="input-container">
+      <input type="text" id="girl" placeholder="Name of Lover 1" />
+
+      <input type="text" id="boy" placeholder="Name of Lover 2" />
+    </div>
+    <button onclick="myFunction()">Calculate</button>
+
+    <marquee behavior="" direction="left"
+      >Disclaimer: It's not possible to get a hundred percent probability.
+      Therefore there is no gurantee of any kind that the relationship will work
+      out between these two people. No record is being kept of any information
+      entered by the user of this program. The creators of this program are in
+      no way liable of any action which might be taken by users of this program.
+      Please note that this site has no serious intenton whatsoever.</marquee
+    >
+
+    <script>
+      function myFunction() {
+        var lover1 = document.getElementById("girl").value;
+        var lover2 = document.getElementById("boy").value;
+        document.getElementById("name-1").innerText =
+          lover1.slice(0, 1).toUpperCase() +
+          lover1.slice(1, lover1.length).toLowerCase();
+        document.getElementById("name-2").innerText =
+          lover2.slice(0, 1).toUpperCase() +
+          lover2.slice(1, lover2.length).toLowerCase();
+        document.getElementById("result").innerText =
+          Math.round(Math.random() * 100 + 1) + "%";
+      }
+    </script>
+  </body>
+</html>
